@@ -12,3 +12,20 @@ Explanation: n is 2, and the maximum sum of pairs is 4.
 **Note:**
 1. n is a positive integer, which is in the range of [1, 10000].
 2. All the integers in the array will be in the range of [-10000, 10000].
+
+## [Discuss](https://discuss.leetcode.com/category/718/array-partition-i)
+
+## Solution
+```java
+public class Solution {
+    public int arrayPairSum(int[] nums) {
+        Arrays.sort(nums);
+
+        int result = 0;
+        for (int i = 0; i < nums.length; i+=2) {
+            result += nums[i];
+        }
+        return result;
+    }
+}
+```
