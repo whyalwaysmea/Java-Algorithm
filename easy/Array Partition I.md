@@ -14,6 +14,10 @@ Explanation: n is 2, and the maximum sum of pairs is 4.
 2. All the integers in the array will be in the range of [-10000, 10000].
 
 ## [Discuss](https://discuss.leetcode.com/category/718/array-partition-i)
+给定一个长度为2n(偶数)的数组，分成n个小组，然后将每个组中较小的那个数相加，然后返回这个和。  
+
+所以其实就是升序的排序，然后将偶数位的数字相加起来。
+一开始我排序用了快排，结果比较耗时，其实可以直接用`Arrays.sort`对数组进行排序的
 
 ## Solution
 ```java
