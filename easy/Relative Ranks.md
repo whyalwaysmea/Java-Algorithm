@@ -22,8 +22,6 @@ For the left two athletes, you just need to output their relative ranks accordin
 这样就可以得到原来数组中的每一个数的名次了，只是需要在前三名的时候，将值修改一下就好了。
 
 
-**优化:**   
-
 
 ## Solution
 ### MySolution
@@ -39,7 +37,7 @@ public class Solution {
         // 对数组进行排序
         Arrays.sort(nums);
         for (int i = 0; i < nums.length; i++) {       
-            // 查找第i个数，是多少名
+            // 查找第i个数，是多少名(从小到大排序的)
             int search = Arrays.binarySearch(nums, temp[i]);
             if(search == nums.length - 1) {
                 result[i] = "Gold Medal";
@@ -57,4 +55,39 @@ public class Solution {
 }
 ```
 
-### Better Solution
+
+### Another Solution
+```java
+public class Solution {
+    public String[] findRelativeRanks(int[] nums) {
+        String[] result = new String[nums.length];
+        // 找到数组中的最大数
+        int max = 0;
+        for (int i : nums) {
+            if (i > max) max = i;
+        }
+        // 新建一个数组，以原来成绩为角标进行赋值
+        int[] hash = new int[max + 1];
+        for (int i = 0; i < nums.length; i++) {
+            hash[nums[i]] = i + 1;
+        }
+        int place = 1;
+        // 其实是间接的排序了
+        for (int i = hash.length - 1; i >= 0; i--) {
+            if (hash[i] != 0) {
+                if (place == 1) {
+                    result[hash[i] - 1] = "Gold Medal";
+                } else if (place == 2) {
+                    result[hash[i] - 1] = "Silver Medal";
+                } else if (place == 3) {
+                    result[hash[i] - 1] = "Bronze Medal";
+                } else {
+                    result[hash[i] - 1] = String.valueOf(place);
+                }
+                place++;
+            }
+        }
+        return result;
+    }
+}
+```
