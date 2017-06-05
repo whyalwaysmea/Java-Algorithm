@@ -1,8 +1,8 @@
 ## [Description](https://leetcode.com/problems/assign-cookies/#/description)
 Assume you are an awesome parent and want to give your children some cookies. But, you should give each child at most one cookie. Each child i has a greed factor gi, which is the minimum size of a cookie that the child will be content with; and each cookie j has a size sj. If sj >= gi, we can assign the cookie j to the child i, and the child i will be content. Your goal is to maximize the number of your content children and output the maximum number.  
 
-**Note:**
-You may assume the greed factor is always positive.
+**Note:**    
+You may assume the greed factor is always positive.   
 You cannot assign more than one cookie to one child.
 
 **Example1:**  
@@ -29,15 +29,31 @@ You need to output 2.
 
 ## [Discuss]()
 **题意：**   
-
+假设有g个孩子，s个饼干。   
+每个孩子有一个贪婪值g[i],只有当饼干的大小s[j]大于等于g[i]的时候，孩子才会接收这个饼干。   
+请问最多可以分配多少个饼干。
 
 **思考：**  
+其实就是对两个数组进行遍历然后再比较。  
+首先可以对两个数组进行排序，遍历饼干s[]，先去和最小的贪婪值比较。s[j] >= g[i]，然后i++。继续循环遍历
 
 **优化:**   
 
 
 ## Solution
 **MySolution：**   
-
+```java
+public class Solution {
+    public int findContentChildren(int[] g, int[] s) {
+        Arrays.sort(g);
+        Arrays.sort(s);
+        int i = 0;
+        for(int j=0;i<g.length && j<s.length;j++) {
+        	if(g[i]<=s[j]) i++;
+        }
+        return i;
+    }
+}
+```
 
 **Better Solution：**  
