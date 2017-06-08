@@ -35,7 +35,10 @@ Explanation: The restaurant they both like and have the least index sum is "Shog
 双重遍历，先找到是否有相同的元素，然后获取它们的下标和，和原有的下标和进行比较。  
 如果小于原来的和，那么放入到一个list中。
 
-**优化:**   
+**另一个思路:**   
+先用一个HashMap来装入list1，以元素为key，下标为value。  
+遍历list2，取出元素，如果该元素在map1中有value，那么就将该元素存入map2中，以元素为key，sum为value，同时算出minSum  
+最后遍历map2，如果value等于minSum那么就加入list中
 
 
 ## Solution
@@ -66,4 +69,32 @@ public class Solution {
 }
 ```
 
-**Better Solution：**  
+**Another Solution：**  
+```java
+public class Solution {
+  public String[] findRestaurant(String[] list1, String[] list2) {
+
+        Map<String, Integer> map = new HashMap<>();
+        Map<String, Integer> fi = new HashMap<>();
+        List<String> res = new ArrayList<>();
+        int min = Integer.MAX_VALUE;
+
+        for (int i = 0; i < list1.length; i++)
+            map.put(list1[i], i);
+
+        for (int i = 0; i < list2.length; i++) {
+            if (map.containsKey(list2[i])) {
+                int indexsum = map.get(list2[i]) + i;
+                fi.put(list2[i], indexsum);
+                min = Math.min(min, indexsum);
+            }
+        }
+
+        for (Map.Entry<String, Integer> entrySet : fi.entrySet())
+            if (entrySet.getValue() == min)
+                res.add(entrySet.getKey());
+
+        return res.toArray(new String[res.size()]);
+    }
+}
+```
