@@ -22,7 +22,8 @@ canConstruct("aa", "aab") -> true
 最后对这两个次数记录进行比较。   
 
 **优化:**   
-
+其实目的就是比较两个字符串中每个字母的出现次数。     
+对于某一个字母，如果它在ransomNote中的出现次数比magazine多，那么就返回false，反之则是true。
 
 ## Solution
 **MySolution：**   
@@ -77,3 +78,22 @@ public class Solution {
 ```
 
 **Better Solution：**  
+```java
+public class Solution {
+    public boolean canConstruct(String ransomNote, String magazine) {
+        int[] arr = new int[26];
+        // 记录magazine中每个字母的出现次数
+        for (int i = 0; i < magazine.length(); i++) {
+            arr[magazine.charAt(i) - 'a']++;
+        }
+        // 获取ransomNote中每个字母的出现次数
+        // 然后和magazine中的该字母出现的次数比较
+        for (int i = 0; i < ransomNote.length(); i++) {
+            if(--arr[ransomNote.charAt(i)-'a'] < 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
