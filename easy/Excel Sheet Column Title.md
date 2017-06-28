@@ -48,3 +48,24 @@ public class Solution {
     }
 }
 ```
+
+
+## [More](https://leetcode.com/problems/excel-sheet-column-number/#/description)
+Given a column title as appear in an Excel sheet, return its corresponding column number.   
+其实就是从字母转换成数字   
+
+## Solution
+```java
+public class Solution {
+    public int titleToNumber(String s) {
+        int result = 0;
+        StringBuilder sb = new StringBuilder(s);
+        String s1 = sb.reverse().toString();
+        for (int i = 0; i < s1.length(); i++) {
+            char c = s1.charAt(i);
+            result += Math.pow(26, i) * (c - 'A' + 1);
+        }
+        return result;
+    }
+}
+```
