@@ -2,7 +2,7 @@
 
 * [Introduction](README.md)
 * Array  
-    [Array Partition I](array/Array Partition I.md)
+    [Array Partition I](https://github.com/whyalwaysmea/myLeetCode/blob/master/array/Array%20Partition%20I.md)
 * [String]
 * dynamic-programming
 * hash-table
