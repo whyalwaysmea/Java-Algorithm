@@ -1,7 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
-* [Array]
+* Array  
     [Array Partition I](array/Array Partition I.md)
 * [String]
 * dynamic-programming
