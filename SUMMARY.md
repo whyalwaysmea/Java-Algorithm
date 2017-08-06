@@ -2,6 +2,7 @@
 
 * [Introduction](README.md)
 * [Array]
+    [Array Partition I](array/Array Partition I.md)
 * [String]
 * dynamic-programming
 * hash-table
