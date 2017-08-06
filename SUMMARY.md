@@ -1,8 +1,8 @@
 # Summary
 
 * [Introduction](README.md)
-* [Array](array.md)
-* [String](string.md)
+* [Array]
+* [String]
 * dynamic-programming
 * hash-table
 * Math
