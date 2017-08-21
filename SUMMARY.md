@@ -1,6 +1,6 @@
 # Summary
 
-* [Introduction](README.md)
+* [Introduction](Introduction.md)
 * Array  
     - [Array Partition I](array/Array%20Partition%20I.md)
 * [String]
