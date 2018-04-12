@@ -12,28 +12,29 @@
 1. 将相邻的元素两两看作一对。如果第一个比第二个大，就交换他们两个。  
 2. 对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。完成一次后，最后的元素会是最大的数。  
 3. 针对所有的元素重复以上的步骤，除了后面已经排好序的元素，直到没有任何一对数字需要比较    
+
 # 算法实现  
 ```java
 public class BubbleSort {
 
-	public void bubbleSort(int[] arr) {
-		if(arr == null) {
-			return ;
-		}
-		for(int i = arr.length - 1; i > 0; i--) {
-			for(int j = 0; j < i; j++) {
-				if(arr[j] > arr[j+1]) {
-					swap(arr, j, j + 1);
-				}
-			}
-		}
-	}
+    public void bubbleSort(int[] arr) {
+        if(arr == null) {
+            return ;
+        }
+        for(int i = arr.length - 1; i > 0; i--) {
+            for(int j = 0; j < i; j++) {
+                if(arr[j] > arr[j+1]) {
+                    swap(arr, j, j + 1);
+                }
+            }
+        }
+    }
 	
-	private void swap(int[] arr, int i, int j) {
-		int temp = arr[i];
-		arr[i] = arr[j];
-		arr[j] = temp; 
-	}
+    private void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp; 
+    }
 }
 ```
 
