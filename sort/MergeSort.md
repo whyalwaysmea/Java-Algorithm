@@ -45,56 +45,56 @@ public int[] merge(int arrA[], int arrB[]) {
 ```java
 public class MergeSort {
 
-	public void mergeSort(int[] arr) {
-		if(arr == null || arr.length < 2) {
-			return ;
-		}
-		mergeSort(arr, 0, arr.length - 1);
-	}
+    public void mergeSort(int[] arr) {
+        if(arr == null || arr.length < 2) {
+            return ;
+        }
+        mergeSort(arr, 0, arr.length - 1);
+    }
 	
-	/**
-	 * 将数组在指定范围内进行拆分合并
-	 */
-	public void mergeSort(int[] arr, int l, int r) {
-		// 已经无法再拆分了
-		if(l == r) {
-			return ;
-		}
-		// 从中间拆分
-		int mid = l + ((r-l) >> 1);
-		mergeSort(arr, l, mid);
-		mergeSort(arr, mid + 1, r);
-		// 进行合并
-		merge(arr, l, mid, r);
-	}
+    /**
+        * 将数组在指定范围内进行拆分合并
+        */
+    public void mergeSort(int[] arr, int l, int r) {
+        // 已经无法再拆分了
+        if(l == r) {
+            return ;
+        }
+        // 从中间拆分
+        int mid = l + ((r-l) >> 1);
+        mergeSort(arr, l, mid);
+        mergeSort(arr, mid + 1, r);
+        // 进行合并
+        merge(arr, l, mid, r);
+    }
 	
-	/**
-	 * 合并，l到m，m+1到r 两段分别有序
-	 */
-	public void merge(int[] arr, int l, int m, int r) {
-		int[] help = new int[r - l + 1];
-		int i = 0;
-		int p1 = l;
-		int p2 = m + 1;
-		while (p1 <= m && p2 <= r) {
-			help[i++] = arr[p1] < arr[p2] ? arr[p1++] : arr[p2++];
-		}
-		while (p1 <= m) {
-			help[i++] = arr[p1++];
-		}
-		while (p2 <= r) {
-			help[i++] = arr[p2++];
-		}
-		for (i = 0; i < help.length; i++) {
-			arr[l + i] = help[i];
-		}
-	}
+    /**
+    * 合并，l到m，m+1到r 两段分别有序
+    */
+    public void merge(int[] arr, int l, int m, int r) {
+        int[] help = new int[r - l + 1];
+        int i = 0;
+        int p1 = l;
+        int p2 = m + 1;
+        while (p1 <= m && p2 <= r) {
+            help[i++] = arr[p1] < arr[p2] ? arr[p1++] : arr[p2++];
+        }
+        while (p1 <= m) {
+            help[i++] = arr[p1++];
+        }
+        while (p2 <= r) {
+            help[i++] = arr[p2++];
+        }
+        for (i = 0; i < help.length; i++) {
+            arr[l + i] = help[i];
+        }
+    }
 }
 
 ``` 
 
 
-## 时间复杂度  
+# 时间复杂度  
 这里到了递归的算法，每一个递归都可以转换成非递归的方式。  
 递归分治法有一个[Master公式](http://www.gocalf.com/blog/algorithm-complexity-and-master-theorem.html)，可以用来求解时间复杂度   
 简单的提一下Master公式：
@@ -111,5 +111,8 @@ T(N) = a * T(N/b) + O(N^d)， N表示样本量，N/b表示子过程的样本量�
 
 所以最终的时间复杂度是：O(N*logN)  
 
-## 空间复杂度 
+# 空间复杂度 
 O(N)
+
+# 稳定性  
+归并排序是稳定的排序
