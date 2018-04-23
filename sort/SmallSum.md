@@ -56,7 +56,7 @@ public class SmallSum() {
 		int p2 = m + 1;
 		int res = 0;
 		while (p1 <= m && p2 <= r) {
-            // 在此进行统计
+            // 进行统计
 			res += arr[p1] < arr[p2] ? (r - p2 + 1) * arr[p1] : 0;
 			help[i++] = arr[p1] < arr[p2] ? arr[p1++] : arr[p2++];
 		}
