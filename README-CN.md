@@ -1,4 +1,4 @@
-## About
+## 关于项目  
 这个项目包含了基础的算法和数据结构，同时也有一些LeetCode上的题目
 
 对于每一个题我都会写出解题的基本思路
@@ -23,6 +23,6 @@
     - [基数排序](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/sort/RadixSort.md)      
 - 栈&队列 
     - [用数组实现栈&队列](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/stacks%26queue/ArrayToStacks%26Queue.md)      
-    
+    - [获取栈中的最小值](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/stacks%26queue/getMinValueOfStack.md)
     
 

@@ -23,3 +23,4 @@ If you have questions or suggestions you can give me an issue
     - [RadixSort](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/sort/RadixSort.md)       
 - Stack & Queue
     - [Array as Stack & Queue](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/stacks%26queue/ArrayToStacks%26Queue.md)  
+    - [MinValueOfStack](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/stacks%26queue/getMinValueOfStack.md)  
