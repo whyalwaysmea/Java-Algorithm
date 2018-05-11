@@ -15,7 +15,7 @@
         - [小和问题](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/sort/SmallSum.md)         
     - [快速排序](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/sort/QuickSort.md)   
         - [荷兰国旗问题](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/sort/NetherlandsSort.md)    
-    - [Hea✔排序pSort](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/sort/HeapSort.md)   
+    - [堆排序](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/sort/HeapSort.md)    
         - [最小数问题](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/sort/LargestNumber.md)   
         - [中值问题](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/sort/MedianValue.md)   
     - [计数排序](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/sort/CountingSort.md)       
