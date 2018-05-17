@@ -21,8 +21,10 @@
     - [计数排序](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/sort/CountingSort.md)       
     - [桶排序](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/sort/BucketSort.md)       
     - [基数排序](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/sort/RadixSort.md)      
-- 栈&队列 
+- 栈 & 队列 
     - [用数组实现栈&队列](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/stacks%26queue/ArrayToStacks%26Queue.md)      
     - [获取栈中的最小值](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/stacks%26queue/getMinValueOfStack.md)
     - [队列&栈转换](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/stacks%26queue/StackAndQueueConvert.md)  
-
+- 数组 & 矩阵
+    - [转圈打印矩阵](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/array%26matrix/PrintMatrixSpiralOrder.md)      
+    - [旋转矩阵](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/array%26matrix/RotateMatrix.md)
