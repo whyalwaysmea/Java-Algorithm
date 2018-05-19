@@ -27,5 +27,5 @@ If you have questions or suggestions you can give me an issue
     - [StackAndQueueConvert](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/stacks%26queue/StackAndQueueConvert.md)  
 - Arrays & Matrix 
     - [Print Matrix Spiral Order](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/array%26matrix/PrintMatrixSpiralOrder.md)      
-    - [Rotate Matrix](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/array%26matrix/RotateMatrix.md)
-    - [ZigZagPrintMatrix](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/array%26matrix/ZigZagPrintMatrix.md)
+    - [Rotate Matrix](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/array%26matrix/RotateMatrix.md)   
+    - [ZigZagPrintMatrix](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/array%26matrix/ZigZagPrintMatrix.md)  
