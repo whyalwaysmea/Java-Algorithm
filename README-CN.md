@@ -28,4 +28,5 @@
 - 数组 & 矩阵
     - [转圈打印矩阵](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/array%26matrix/PrintMatrixSpiralOrder.md)      
     - [旋转矩阵](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/array%26matrix/RotateMatrix.md)
-    - [之字形打印矩阵](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/array%26matrix/ZigZagPrintMatrix.md)
+    - [之字形打印矩阵](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/array%26matrix/ZigZagPrintMatrix.md)   
+    - [在行列都排好序的矩阵中找数](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/array%26matrix/FindNumInSortedMatrix.md)  
