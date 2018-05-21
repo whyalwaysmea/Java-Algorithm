@@ -27,4 +27,6 @@
     - [队列&栈转换](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/stacks%26queue/StackAndQueueConvert.md)  
 - 数组 & 矩阵
     - [转圈打印矩阵](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/array%26matrix/PrintMatrixSpiralOrder.md)      
-    - [旋转矩阵](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/array%26matrix/RotateMatrix.md)
+    - [旋转矩阵](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/array%26matrix/RotateMatrix.md)  
+- 链表  
+    - [打印两个有序链表的公共部分](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/LinkedList/PrintCommonPart.md)      
