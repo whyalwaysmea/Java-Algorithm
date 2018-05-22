@@ -11,6 +11,15 @@
 ```java
 public class PrintCommonPart {
 
+    public static class Node {
+        public int value;
+        public Node next;
+
+        public Node(int data) {
+            this.value = data;
+        }
+    }
+
 	public static void printCommonPart(Node head1, Node head2) {
 		System.out.println("start print common part:");
 		while(head1 != null && head2 != null) {
