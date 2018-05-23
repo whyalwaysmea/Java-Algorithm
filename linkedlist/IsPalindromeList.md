@@ -9,7 +9,7 @@
 # 思考 
 回文的判断方式有很多种，这里先不考虑题目的要求，将常用的判断方法从简到繁过一遍  
 
-## 借助额外数据结构  
+## 借助额外数据结构（1）
 在不考虑额外空间复杂度的情况下，可以借助一个外部的栈结构。   
 首先遍历一遍链表，在遍历的过程中，将元素放入栈中   
 然后再一次遍历链表，每次遍历的过程中，都将栈中的元素取出来进行比较，如果遍历过程中遇到不相等的情况，那么就不是回文结构了  
@@ -17,9 +17,18 @@
 这种方法的额外空间复杂度是O(N) 
 
 
+## 借助额外数据结构（2） 
+可以对上一种方法进行一定的改进。  
+因为是回文结构，所以只需要将前一半的数据和后一半的数据进行比较就可以了，这样额外空间复杂度就降低到了O(N/2)
+1. 我们一开始用两个指针来进行遍历，A一次后移一步，B一次后移两步。当B无法移动了，那么A就来到了中间位置；    
+2. 此时再让A继续移动，同时将数据放入栈中；   
+3. 从头节点开始，比较节点和栈中的数据  
+ 
+
+
 # 实现 
 
-## 借助额外数据结构   
+## 借助额外数据结构（1）   
 ```java
 public class IsPalindromeList {
 
@@ -41,6 +50,45 @@ public class IsPalindromeList {
 		}
 		while (head != null) {
 			if (head.value != stack.pop().value) {
+				return false;
+			}
+			head = head.next;
+		}
+		return true;
+	}
+}
+```
+
+## 借助额外数据结构（2）  
+```java
+public class IsPalindromeList {
+
+	public static class Node {
+		public int value;
+		public Node next;
+
+		public Node(int data) {
+			this.value = data;
+		}
+	}
+	
+	public static boolean isPalindrome2(Node head) {
+		if(head == null || head.next == null) {
+			return true;
+		}
+		Stack<Node> stack = new Stack<Node>();
+		Node cur = head;
+		Node end = head.next;
+		while (end != null && end.next != null) {
+			cur = cur.next;
+			end = end.next.next;
+		}
+		while(cur.next != null) {
+			stack.push(cur.next);
+			cur.next = cur.next.next;
+		}
+		while(!stack.isEmpty()) {
+			if(head.value != stack.pop().value) {
 				return false;
 			}
 			head = head.next;
