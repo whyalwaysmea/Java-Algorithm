@@ -32,4 +32,5 @@ If you have questions or suggestions you can give me an issue
     - [FindNumInSortedMatrix](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/array%26matrix/FindNumInSortedMatrix.md)  
 - LinkedList  
     - [PrintCommonPart](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/LinkedList/PrintCommonPart.md)  
+    - [IsPalindromeList](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/LinkedList/IsPalindromeList.md)  
     
