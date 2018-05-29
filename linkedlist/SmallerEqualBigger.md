@@ -70,4 +70,87 @@ public class SmallerEqualBigger {
 }    
 ```   
 
- 
+ # 进阶 
+ 在原问题的要求上再增加如下两个要求:  
+ 1. 在左、中、右三个部分的内部做顺序要求，要求每部分里的节点从左到右的顺序与原链表中节点的先后次序一次  
+ 2. 如果链表长度为N，时间复杂度请达到O(N)，额外空间复杂度为O(1) 
+
+ 【示例】  
+ 链表：9 -> 0 -> 4 -> 5 -> 1，pivot = 3。    
+ 调整后的链表：0 -> 1 -> 9 -> -> 4 -> 5  
+
+ # 思考  
+原有的方式有如下不足： 
+1. partition的过程不是稳定的，会导致顺序错乱  
+2. 额外空间复杂度为O(N)  
+
+考虑到链表的特性，以及最后结果有一定的分区性，所以我们可以将结果看作是三个链表组合起来的  
+小于pivot的为一部分，等于的为一部分，大于的是一部分，最后再将这三个拼接起来就好了  
+对于每一部分而言，我们一开始先找到头节点，也就是原链表中第一个小于、等于、大于pivot的节点，然后再遍历原链表，将每个节点放进对应的部分就好了      
+
+
+ # 实现 
+ ```java
+public class SmallerEqualBigger {
+
+	public static class Node {
+        public int value;
+        public Node next;
+
+        public Node(int data) {
+            this.value = data;
+        }
+    }
+
+	public static Node listPartition1(Node head, int pivot) {
+		Node sH = null; 	// small head
+		Node sT = null; 	// small tail
+		Node eH = null; 	// equal head
+		Node eT = null; 	// equal tail
+		Node bH = null; 	// big head
+		Node bT = null; 	// big tail
+		Node next = null; 	// save next node
+		// every node distributed to three lists
+		while (head != null) {
+			next = head.next;
+			head.next = null;
+			if (head.value < pivot) {
+				if (sH == null) {
+					sH = head;
+					sT = head;
+				} else {
+					sT.next = head;
+					sT = head;
+				}
+			} else if (head.value == pivot) {
+				if (eH == null) {
+					eH = head;
+					eT = head;
+				} else {
+					eT.next = head;
+					eT = head;
+				}
+			} else {
+				if (bH == null) {
+					bH = head;
+					bT = head;
+				} else {
+					bT.next = head;
+					bT = head;
+				}
+			}
+			head = next;
+		}
+		// small and equal reconnect
+		if (sT != null) {
+			sT.next = eH;
+			eT = eT == null ? sT : eT;
+		}
+		// all reconnect
+		if (eT != null) {
+			eT.next = bH;
+		}
+		return sH != null ? sH : eH != null ? eH : bH;
+	}
+}
+ ```
