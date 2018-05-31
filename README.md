@@ -34,4 +34,5 @@ If you have questions or suggestions you can give me an issue
     - [ReverseList](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/linkedlist/ReverseList.md)  
     - [PrintCommonPart](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/LinkedList/PrintCommonPart.md)  
     - [IsPalindromeList](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/LinkedList/IsPalindromeList.md)  
-    
+    - [CopyListWithRandom](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/LinkedList/CopyListWithRandom.md)  
+    - [SmallerEqualBigger](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/LinkedList/SmallerEqualBigger.md)  

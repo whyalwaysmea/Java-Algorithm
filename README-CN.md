@@ -34,4 +34,6 @@
     - [反转链表](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/linkedlist/ReverseList.md)  
     - [打印两个有序链表的公共部分](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/LinkedList/PrintCommonPart.md)      
     - [判断链表是否是回文结构](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/LinkedList/IsPalindromeList.md)  
+    - [复制含有随机指针节点的链表](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/LinkedList/CopyListWithRandom.md)  
+    - [单向链表划分区域](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/LinkedList/SmallerEqualBigger.md)  
     
