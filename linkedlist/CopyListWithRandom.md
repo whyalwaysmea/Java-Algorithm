@@ -19,6 +19,20 @@ Node类中的value是节点值，next指针和正常单向链表中的next指针
 首先我们借助额外的数据结构来完成功能  
 因为有复制的这个过程，所以可以想到hash结构，旧值为key，新值为value，这样挨着遍历拼接就好了
 
+其次再考虑不借助额外数据结构的情况  
+我们可以考虑对原有的结构做一定调整  
+
+我们先通过一次遍历，产生每一个节点的复制节点，放在原节点的后面，如下：   
+原链表： 1 -> 3 -> 2  
+复制后： 1 -> 1' -> 3 -> 3' -> 2 -> 2' 
+这里带有'就表示复制节点  
+
+这样通过原节点，就很容易的可以找到该节点的复制节点   
+比如 head.rand 的复制节点就是 head.rand.next  
+那么我们再来调整随机指针的节点  
+
+最后将链表进行拆分
+
 
 # 实现 
 ```java
@@ -48,5 +62,42 @@ public class CopyListWithRandom {
 		}
 		return map.get(head);
 	}
+}
+```
+
+```java
+public static Node CopyListWithRandom2(Node head) {
+    if (head == null) {
+        return null;
+    }
+    Node cur = head;
+    Node next = null;
+    // copy node and link to every node
+    while (cur != null) {
+        next = cur.next;
+        cur.next = new Node(cur.value);
+        cur.next.next = next;
+        cur = next;
+    }
+    cur = head;
+    Node curCopy = null;
+    // set copy node rand
+    while (cur != null) {
+        next = cur.next.next;
+        curCopy = cur.next;
+        curCopy.rand = cur.rand != null ? cur.rand.next : null;
+        cur = next;
+    }
+    Node res = head.next;
+    cur = head;
+    // split
+    while (cur != null) {
+        next = cur.next.next;
+        curCopy = cur.next;
+        cur.next = next;
+        curCopy.next = next != null ? next.next : null;
+        cur = next;
+    }
+    return res;
 }
 ```
