@@ -113,3 +113,87 @@ public class PreInPosTraversal {
 
 }
 ```
+
+# 非递归实现  
+
+## 思路  
+我们首先要知道任何递归形式的方法都可以改成非递归的，递归的好处在于它保存了方法调用的栈结构，当然这也会导致递归性能上的问题  
+所以我们也可以用一个栈来记录方法的调用  
+
+**前序遍历：**  
+前序遍历的顺序是根左右，再结合上栈的结构特点，所以我们可以先把右孩子放进栈，再把左孩子放进栈。通过循环出栈，出栈后立即打印，然后再将该节点的右孩子、左孩子放进栈。
+
+
+# 非递归的实现
+```java
+public class PreInPosTraversal {
+
+    public static class Node {
+        public int value;
+        public Node left;
+        public Node right;
+
+        public Node(int data) {
+            this.value = data;
+        }
+    }		
+
+    /**
+     * 前序 非递归
+     */
+    public static void preOrderUnRecur(Node head) {
+        if (head != null) {
+            Stack<Node> stack = new Stack<Node>();
+            stack.add(head);
+            while (!stack.isEmpty()) {
+                head = stack.pop();
+                System.out.print(head.value + " ");
+                if (head.right != null) {
+                    stack.push(head.right);
+                }
+                if (head.left != null) {
+                    stack.push(head.left);
+                }
+            }
+        }
+    }
+
+    /**
+     *                5
+     *           3         8 
+     *        2    4     7   10
+     *     1            6    9 11
+     *     
+     *     前序： 5 3 2 1 4 8 7 6 10 9 11
+     *     中序： 1 2 3 4 5 6 7 8 9 10 11
+     *     后序: 1 2 4 3 6 7 9 11 10 8 5
+     */
+    public static void main(String[] args) {
+        Node head = new Node(5);
+        head.left = new Node(3);
+        head.right = new Node(8);
+        head.left.left = new Node(2);
+        head.left.right = new Node(4);
+        head.left.left.left = new Node(1);
+        head.right.left = new Node(7);
+        head.right.left.left = new Node(6);
+        head.right.right = new Node(10);
+        head.right.right.left = new Node(9);
+        head.right.right.right = new Node(11);
+
+
+        // unrecursive
+        System.out.println("============unrecursive=============");
+        System.out.print("pre-order: ");
+        preOrderUnRecur(head);
+        System.out.print("in-order: ");
+        inOrderUnRecur(head);
+        System.out.print("pos-order: ");
+        posOrderUnRecur1(head);
+        System.out.println();
+        posOrderUnRecur2(head);
+
+    }
+
+}
+```

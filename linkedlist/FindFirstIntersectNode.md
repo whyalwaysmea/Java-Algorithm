@@ -51,9 +51,9 @@ public class FindFirstIntersectNode {
     }
 
     /**
-        * 判断单链表是否成环
-        * 借助外部数据结构 
-        */
+     * 判断单链表是否成环
+     * 借助外部数据结构 
+     */
     public static boolean isLoopNode1(Node head) {
         HashSet<Node> hash = new HashSet<Node>();
         while(head != null) {
@@ -67,8 +67,8 @@ public class FindFirstIntersectNode {
     }
 
     /**
-        * 通过快慢指针的方式判断单链表是否成环
-        */
+     * 通过快慢指针的方式判断单链表是否成环
+     */
     public static boolean isLoopNode2(Node head) {
         if(head == null || head.next == null || head.next.next == null) {
             return false;
