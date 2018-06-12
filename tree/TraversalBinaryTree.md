@@ -121,7 +121,11 @@ public class PreInPosTraversal {
 所以我们也可以用一个栈来记录方法的调用  
 
 **前序遍历：**  
-前序遍历的顺序是根左右，再结合上栈的结构特点，所以我们可以先把右孩子放进栈，再把左孩子放进栈。通过循环出栈，出栈后立即打印，然后再将该节点的右孩子、左孩子放进栈。
+前序遍历的顺序是根左右，再结合上栈的结构特点，所以我们可以先把右孩子放进栈，再把左孩子放进栈。通过循环出栈，出栈后立即打印，然后再将该节点的右孩子、左孩子放进栈。  
+
+**中序遍历：** 
+中序遍历的顺序是左根右，所以我们就先一直放左孩子，直到没有左孩子了，此时就出栈，然后打印，再将它右孩子的左孩子一直进栈。 
+
 
 
 # 非递归的实现
@@ -153,6 +157,25 @@ public class PreInPosTraversal {
                 }
                 if (head.left != null) {
                     stack.push(head.left);
+                }
+            }
+        }
+    }
+
+    /**
+     * 中序  非递归
+     */
+    public static void inOrderUnRecur(Node head) {
+        if (head != null) {
+            Stack<Node> stack = new Stack<Node>();
+            while (!stack.isEmpty() || head != null) {
+                if (head != null) {
+                    stack.push(head);
+                    head = head.left;
+                } else {
+                    head = stack.pop();
+                    System.out.print(head.value + " ");
+                    head = head.right;
                 }
             }
         }
