@@ -61,7 +61,7 @@ public class PreInPosTraversal {
     }
 
     /**
-     * 递归 后续 
+     * 递归 后序
      */
     public static void posOrderRecur(Node head) {
         if(head == null) {
@@ -72,7 +72,7 @@ public class PreInPosTraversal {
         // 遍历右孩子
         posOrderRecur(head.right);
         System.out.print(head.value + " ");
-    }
+    }    
 
     /**
      *                5
@@ -176,6 +176,52 @@ public class PreInPosTraversal {
                     head = stack.pop();
                     System.out.print(head.value + " ");
                     head = head.right;
+                }
+            }
+        }
+    }
+
+    /**
+     * 后序 非递归
+     */
+    public static void posOrderUnRecur1(Node head) {
+        if (head != null) {
+            Stack<Node> s1 = new Stack<Node>();
+            Stack<Node> s2 = new Stack<Node>();
+            s1.push(head);
+            while (!s1.isEmpty()) {
+                head = s1.pop();
+                s2.push(head);
+                if (head.left != null) {
+                    s1.push(head.left);
+                }
+                if (head.right != null) {
+                    s1.push(head.right);
+                }
+            }
+            while (!s2.isEmpty()) {
+                System.out.print(s2.pop().value + " ");
+            }
+        }
+    }
+
+    /**
+     * 后序 非递归
+     */
+    public static void posOrderUnRecur2(Node head) {
+        if (head != null) {
+            Stack<Node> stack = new Stack<Node>();
+            stack.push(head);
+            Node c = null;
+            while (!stack.isEmpty()) {
+                c = stack.peek();
+                if(c.left != null && c.left != head && c.right != head) {
+                    stack.push(c.left);
+                } else if(c.right != null && head != c.right) {
+                    stack.push(c.right);
+                } else {
+                    System.out.print(stack.pop().value + " ");
+                    head = c;
                 }
             }
         }
