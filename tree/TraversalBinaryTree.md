@@ -1,4 +1,4 @@
-# 实现二叉树的先序，中序，后序遍历  
+# 实现二叉树的先序，中序，后序，层次遍历  
 二叉树的遍历分为以下三种：
 
 先序遍历：遍历顺序规则为【根左右】  
@@ -15,7 +15,9 @@
 
 中序遍历：BDCAEHGKF
 
-后序遍历：DCBHKGFEA
+后序遍历：DCBHKGFEA 
+
+层次遍历：ABECFDGHK
 
 # 递归实现  
 ```java
@@ -82,7 +84,8 @@ public class PreInPosTraversal {
      *     
      *     前序： 5 3 2 1 4 8 7 6 10 9 11
      *     中序： 1 2 3 4 5 6 7 8 9 10 11
-     *     后序: 1 2 4 3 6 7 9 11 10 8 5
+     *     后序:  1 2 4 3 6 7 9 11 10 8 5
+     *     中序： 5 3 8 2 4 7 10 1 6 9 11
      */
     public static void main(String[] args) {
         Node head = new Node(5);
@@ -228,6 +231,27 @@ public class PreInPosTraversal {
     }
 
     /**
+     * 层序遍历 非递归
+     */
+    public static void levelOrderUnRecur(Node head) {
+        if(head != null) {
+            Queue<Node> queue = new LinkedList<Node>();
+            queue.add(head);
+            while(!queue.isEmpty()) {
+                Node poll = queue.poll();
+                System.out.print(poll.value + " ");
+                
+                if(poll.left != null) {
+                    queue.add(poll.left);
+                }
+                if(poll.right != null) {
+                    queue.add(poll.right);
+                }
+            }
+        }
+    }
+
+    /**
      *                5
      *           3         8 
      *        2    4     7   10
@@ -261,7 +285,8 @@ public class PreInPosTraversal {
         posOrderUnRecur1(head);
         System.out.println();
         posOrderUnRecur2(head);
-
+        System.out.print("level-order: ");
+        levelOrderUnRecur(head);
     }
 
 }
