@@ -77,6 +77,45 @@ public class PreInPosTraversal {
     }    
 
     /**
+     * 递归 层序
+     */
+    public static void levelOrderRecur(Node head) {
+        if(head == null) {
+            return ;
+        }
+        int depth = depth(head);
+        
+        for (int i = 0; i <= depth; i++) {
+            levelOrderPrint(head, i);
+        }
+    }
+    
+    private static void levelOrderPrint(Node node, int level) {
+        if(node == null) {
+            return ;
+        }
+        
+        if(level == 1) {
+            System.out.print(node.value + " ");
+            return ;
+        }
+        
+        levelOrderPrint(node.left, level - 1);
+        levelOrderPrint(node.right, level - 1);
+    }
+    
+    // 树的深度
+    public static int depth(Node node) {
+        if(node == null) {
+            return 0;
+        }
+        int l = depth(node.left);
+        int r = depth(node.right);
+        
+        return Math.max(l+1, r+1);
+    }
+
+    /**
      *                5
      *           3         8 
      *        2    4     7   10
@@ -85,7 +124,7 @@ public class PreInPosTraversal {
      *     前序： 5 3 2 1 4 8 7 6 10 9 11
      *     中序： 1 2 3 4 5 6 7 8 9 10 11
      *     后序:  1 2 4 3 6 7 9 11 10 8 5
-     *     中序： 5 3 8 2 4 7 10 1 6 9 11
+     *     层序： 5 3 8 2 4 7 10 1 6 9 11
      */
     public static void main(String[] args) {
         Node head = new Node(5);
@@ -260,6 +299,7 @@ public class PreInPosTraversal {
      *     前序： 5 3 2 1 4 8 7 6 10 9 11
      *     中序： 1 2 3 4 5 6 7 8 9 10 11
      *     后序: 1 2 4 3 6 7 9 11 10 8 5
+     *     层序： 5 3 8 2 4 7 10 1 6 9 11
      */
     public static void main(String[] args) {
         Node head = new Node(5);
