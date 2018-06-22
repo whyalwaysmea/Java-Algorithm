@@ -16,8 +16,21 @@ public class Node {
 
 在二叉树的中序遍历中，node的下一个节点就叫做node的后继节点 
 
-# 遍历实现 
+# 思考 
+## 遍历实现
 既然是寻找后继节点，那么我们通过parent一层一层的往上先找到头节点，然后进行中序遍历，在遍历的过程中进行判断就好了 
+
+## 直接寻找 
+中序遍历的顺序是左根右，所以通过观察我们可以得出如下结论：  
+主要是根据给定节点是否有右孩子，以及自身是父节点的左孩子还是右孩子判断   
+ 
+1. 给定的节点有右孩子，那么右孩子的最左的子节点就是给定节点的后继   
+2. 给定的节点是父节点的左孩子，那么父节点就是给定节点的后继  
+3. 给定的节点是父节点的右孩子，那么向上寻找一个作为左孩子的祖先节点，这个祖先节点的父节点就是给定节点的后继    
+
+
+
+# 算法实现
 ```java
 public class SuccessorNode {
 
@@ -30,6 +43,32 @@ public class SuccessorNode {
         public Node(int data) {
             this.value = data;
         }
+    }
+
+    public static Node getSuccessorNode(Node node) {
+        if (node == null) {
+            return node;
+        }
+        if (node.right != null) {
+            return getLeftMost(node.right);
+        } else {
+            Node parent = node.parent;
+            while (parent != null && parent.left != node) {
+                node = parent;
+                parent = node.parent;
+            }
+            return parent;
+        }
+    }
+
+    public static Node getLeftMost(Node node) {
+        if (node == null) {
+            return node;
+        }
+        while (node.left != null) {
+            node = node.left;
+        }
+        return node;
     }
 
     public static Node getSuccessorNode(Node node) {
@@ -110,3 +149,4 @@ public class SuccessorNode {
     }
 }
 ```
+
