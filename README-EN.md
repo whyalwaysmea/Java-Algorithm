@@ -39,3 +39,4 @@ If you have questions or suggestions you can give me an issue
     - [FindFirstIntersectNode](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/LinkedList/FindFirstIntersectNode.md)  
 - Tree 
     - [TraversalBinaryTree](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/tree/TraversalBinaryTree.md)      
+    - [Find Successor Node](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/tree/SuccessorNode.md)  

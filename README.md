@@ -39,4 +39,5 @@
     - [链表相交系列问题](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/LinkedList/FindFirstIntersectNode.md)  
 - 二叉树
     - [前序，中序，后序，层序遍历](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/tree/TraversalBinaryTree.md)      
+    - [寻找后续节点](https://github.com/whyalwaysmea/Java-Algorithm/blob/master/tree/SuccessorNode.md)  
     
