@@ -126,3 +126,74 @@ public class IsBST {
 	}
 }
 ```
+```java
+public class IsBST {
+
+    public static class Node {
+        public int value;
+        public Node left;
+        public Node right;
+
+        public Node(int data) {
+            this.value = data;
+        }
+    }
+
+    public static boolean isBST(Node head) {
+		if (head == null) {
+			return true;
+		}
+		boolean res = true;
+		Node pre = null;
+		Node cur1 = head;
+		Node cur2 = null;
+		while (cur1 != null) {
+			cur2 = cur1.left;
+			if (cur2 != null) {
+				// 最右的节点
+				while (cur2.right != null && cur2.right != cur1) {
+					cur2 = cur2.right;
+				}
+				// 将父节点添加到最右
+				if (cur2.right == null) {
+					cur2.right = cur1;
+					cur1 = cur1.left;
+					continue;
+				} else {
+					cur2.right = null;
+				}
+			}
+			if (pre != null && pre.value > cur1.value) {
+				res = false;
+			}
+			pre = cur1;
+			cur1 = cur1.right;
+		}
+		return res;
+	}
+	
+	public static void inOrder(Node root) {
+        if (root != null) {
+            inOrder(root.left);
+            stack.push(root.value);
+            inOrder(root.right);
+        }
+    }
+
+    public static void main(String[] args) {
+		Node head = new Node(5);
+        head.left = new Node(3);
+        head.right = new Node(8);
+        head.left.left = new Node(2);
+        head.left.right = new Node(4);
+        head.left.left.left = new Node(1);
+        head.right.left = new Node(7);
+        head.right.left.left = new Node(6);
+        head.right.right = new Node(10);
+        head.right.right.left = new Node(9);
+        head.right.right.right = new Node(11);
+        
+        System.out.println(isBST(head));
+	}
+}
+```
